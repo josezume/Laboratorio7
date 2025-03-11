@@ -47,7 +47,7 @@ public:
         cout << "Retiro exitoso, saldo actual: " << saldo << endl;
     }
 
-    void transferir(CuentaBancaria& destino, double monto) {
+    void transferir(CuentaBancaria destino, double monto) {
         if (!activa) {
             cout << "La cuenta esta deshabilitada, no puede realizar transferencias." << endl;
             return;
