@@ -17,7 +17,7 @@ public:
         mesesInactivo = 0;
     }
 
-    // Devuelve el saldo (para poder verificarlo en main al transferir)
+    // Devuelve el saldo 
     double obtenerSaldo() {
         return saldo;
     }
@@ -27,7 +27,7 @@ public:
         return activa;
     }
 
-    // Cambia el estado (habilitar/deshabilitar) y reinicia intentos fallidos si se habilita
+    // Cambia el estado ( de habilitada y/o deshabilitada ) y reinicia intentos fallidos si se habilita de nuevo
     void cambiarEstado(bool estado) {
         activa = estado;
         if (activa) {
@@ -55,7 +55,7 @@ public:
             return;
         }
         saldo += monto;
-        // Como se realizó una operación, se reinicia la inactividad
+        // Como se realizó una operación, reinicia la inactividad
         mesesInactivo = 0;
         cout << "Deposito exitoso. Saldo actual: " << saldo << endl;
     }
@@ -76,7 +76,7 @@ public:
 			cout << "-----LA CUENTA PUEDE SER BLOQUEADA POR MULTIPLES INTENTOS DE RETIRO FALLIDOS. ADVERTENCIA " << intentosFallidos <<"/3.-----" << endl;
             if (intentosFallidos >= 3) {
                 activa = false;
-                cout << "Cuenta bloqueada por multiples intentos fallidos." << endl;
+                cout << "CUENTA BLOQUEADA POR MULTIPLES INTENTOS DE RETIRO FALLIDOS." << endl;
             }
             return;
         }
@@ -92,7 +92,7 @@ public:
         }
     }
 
-    // Simular el paso de un mes
+    // paso de un mes
     void pasarMes() {
         // Si la cuenta ya está bloqueada, no hace nada con la inactividad
         if (!activa) return;
@@ -107,7 +107,7 @@ public:
 };
 
 int main() {
-    // Creamos 30 cuentas, cada una con saldo inicial de 1000
+    // Creación de 30 cuentas, con saldo inicial de 1000
     CuentaBancaria cuenta1(1000), cuenta2(1000), cuenta3(1000), cuenta4(1000), cuenta5(1000);
     CuentaBancaria cuenta6(1000), cuenta7(1000), cuenta8(1000), cuenta9(1000), cuenta10(1000);
     CuentaBancaria cuenta11(1000), cuenta12(1000), cuenta13(1000), cuenta14(1000), cuenta15(1000);
